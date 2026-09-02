@@ -1,0 +1,11 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: playos
+Description: PlayOS Platform API (frozen public ABI)
+Version: 0.3.0
+Requires.private: raylib-playos
+Libs: -L${libdir} -lplayos
+Cflags: -I${includedir}
