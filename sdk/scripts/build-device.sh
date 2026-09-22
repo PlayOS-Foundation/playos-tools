@@ -21,4 +21,14 @@ cmake -S "$SRC" -B "$BUILD" \
 cmake --build "$BUILD"
 
 echo "==> Device build: $BUILD"
-file "$BUILD"/game* 2>/dev/null || true
+# Samples put the binary in bin/ (RUNTIME_OUTPUT_DIRECTORY); older ones in the
+# build root. S14.5-style verification: report the device ABI, since a glibc-linked
+# binary would be silently unusable on the device.
+BIN="$BUILD/bin/game"
+[ -x "$BIN" ] || BIN="$BUILD/game"
+if [ -x "$BIN" ]; then
+    file "$BIN"
+    echo "    (device ABI: the interpreter must be ld-musl-x86_64.so.1)"
+else
+    echo "warning: no game binary found under $BUILD" >&2
+fi

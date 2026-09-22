@@ -427,3 +427,12 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# ── PlayOS SDK artifacts (Sprint 15) ──────────────────────────────────────────
+# scripts/export-sdk.sh populates these from a Buildroot output. They are large
+# (a few hundred MB), machine-specific and reproducible, so they must never be
+# committed - only the scaffolding next to them (cmake/, pkgconfig/, scripts/).
+sdk/toolchain/
+sdk/lib/
+sdk/include/
+sdk/*.tar.gz
