@@ -435,4 +435,5 @@ FodyWeavers.xsd
 sdk/toolchain/
 sdk/lib/
 sdk/include/
+sdk/desktop/
 sdk/*.tar.gz
